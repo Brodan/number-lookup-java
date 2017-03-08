@@ -1,7 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
-mainClassName = 'hello.Hello'
+mainClassName = 'lookup.Lookup'
 
 repositories {
     mavenCentral()
@@ -18,5 +18,7 @@ jar {
 }
 
 run {
-    standardInput = System.in
+    if (project.hasProperty("appArgs")) {
+        args Eval.me(appArgs)
+    }
 }
