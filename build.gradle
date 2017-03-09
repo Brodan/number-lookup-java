@@ -11,11 +11,6 @@ dependencies {
     compile group: 'com.twilio.sdk', name: 'twilio', version: '7.5.0'
 }
 
-jar {
-    baseName = 'number-lookup-java'
-    version =  '0.0.1'
-}
-
 run {
     if (project.hasProperty("appArgs")) {
         args Eval.me(appArgs)
