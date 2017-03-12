@@ -7,13 +7,8 @@ import com.twilio.rest.lookups.v1.PhoneNumber;
 
 public class Lookup {
     
-    public static final String ACCOUNT_SID = Optional.ofNullable(
-        System.getenv("TWILIO_ACCOUNT_SID")).orElseThrow(
-        () -> new IllegalArgumentException("TWILIO_ACCOUNT_SID is not set in the environment."));
-    
-    public static final String AUTH_TOKEN = Optional.ofNullable(
-        System.getenv("TWILIO_AUTH_TOKEN")).orElseThrow(
-        () -> new IllegalArgumentException("TWILIO_AUTH_TOKEN is not set in the environment."));
+    public static final String ACCOUNT_SID = System.getenv("TWILIO_ACCOUNT_SID");
+    public static final String AUTH_TOKEN = System.getenv("TWILIO_AUTH_TOKEN");
 
     public static void main(String[] args) {
         if(args.length == 0) {
