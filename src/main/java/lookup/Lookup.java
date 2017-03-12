@@ -1,7 +1,5 @@
 package lookup;
 
-import java.util.Optional;
-
 import com.twilio.Twilio;
 import com.twilio.rest.lookups.v1.PhoneNumber;
 
