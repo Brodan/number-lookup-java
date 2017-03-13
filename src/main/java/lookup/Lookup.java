@@ -16,12 +16,17 @@ public class Lookup {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
         String lookup_number = args[0];
 
-        PhoneNumber number = PhoneNumber
-            .fetcher(new com.twilio.type.PhoneNumber(lookup_number))
-            .setType("carrier")
-            .fetch();
+        try {
+            PhoneNumber number = PhoneNumber
+                .fetcher(new com.twilio.type.PhoneNumber(lookup_number))
+                .setType("carrier")
+                .fetch();
 
-        System.out.println("Carrier name: " + number.getCarrier().get("name"));
-        System.out.println("Number type: " + number.getCarrier().get("type"));
+            System.out.println("Carrier name: " + number.getCarrier().get("name"));
+            System.out.println("Number type: " + number.getCarrier().get("type"));
+
+        } catch(com.twilio.exception.ApiException e) {
+            System.out.println("Phone number not found.");
+        }
     }
 }
