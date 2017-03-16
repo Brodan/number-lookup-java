@@ -26,7 +26,11 @@ public class Lookup {
             System.out.println("Number type: " + number.getCarrier().get("type"));
 
         } catch(com.twilio.exception.ApiException e) {
-            System.out.println("Phone number not found.");
+            if(e.getStatusCode() == 404) {
+                System.out.println("Phone number not found.");
+            } else {
+                throw e;
+            }
         }
     }
 }
